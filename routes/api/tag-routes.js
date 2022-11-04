@@ -29,15 +29,15 @@ router.get('/:id', async (req, res) => {
       console.log(err)
   }
 });
-
+TODO:
 router.post('/', (req, res) => {
   // create a new tag
 });
-
+TODO:
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
 });
-
+TODO:
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
 });

@@ -6,7 +6,7 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // get all products
 router.get('/', async (req, res) => {
   // find all products
-  // be sure to include its associated Category and Tag datas
+  TODO:// be sure to include its associated Category NAME and Tag datas
     try {
     const products = await Product.findAll();
     res.status(200).json(products)
@@ -31,15 +31,17 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+TODO:
 // create new product
 router.post('/', (req, res) => {
 
   /* req.body should look like this...
     {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
+      "product_name": "Foosball",
+      "price": 200.00,
+      "stock": 3,
+      "catergory_id": 3,
+      "tagIds": [1, 2, 3, 4]
     }
     
   */
@@ -51,7 +53,7 @@ router.post('/', (req, res) => {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
             product_id: product.id,
-            tag_id,
+            tag_id: tag_id,
           };
         });
         return ProductTag.bulkCreate(productTagIdArr);
