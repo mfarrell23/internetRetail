@@ -7,8 +7,8 @@ router.get('/', async (req, res) => {
   // find all categories
   TODO:// be sure to include its associated Products
   try {
-    const categories = await Category.findAll();
-    res.status(200).json(categories)
+    const Category = await Category.findAll();
+    res.status(200).json(category)
     } catch (err) {
         console.log(err)
     }
@@ -18,12 +18,12 @@ router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
-    const categories = await Category.findByPk(req.params.id)
-    if (!categories) {
+    const category = await Category.findByPk(req.params.id)
+    if (!category) {
        return res.status(400).json({message: 'No category!'})
     }
 
-    res.status(200).json(categories)
+    res.status(200).json(category)
 
   } catch (err) {
       console.log(err)
@@ -61,17 +61,17 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
   try {
-    const categories = await Category.destroy({
+    const category = await Category.destroy({
         where: {
             id: req.params.id
         }
     })
 
-    if (!categories) {
+    if (!category) {
        return res.status(400).json({message: 'No categories!'})
     }
 
-    res.status(200).json(categories)
+    res.status(200).json(category)
 } catch (err) {
     console.log(err)
 }
